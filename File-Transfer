@@ -67,7 +67,7 @@ for x in range(0, quantidade_arquivos):
     caminho_arquivo = (diretorio + primeiro_arquivo)
     logging.info("Caminho do arquivo: " + caminho_arquivo)
     
-    #Cria um diretória se ele não existir
+    #Cria um diretório se ele não existir
     if not os.path.isdir(destino):
         logging.info("O diretório dia{} não existe!".format(diatxt))
         logging.info("Criando diretório dia{}!".format(diatxt))
