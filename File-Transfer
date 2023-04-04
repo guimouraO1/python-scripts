@@ -1,0 +1,92 @@
+import os
+import re
+from pathlib import Path
+import shutil
+import os.path
+import logging
+import time
+import datetime
+
+# Nome do diretório em que estão as imagens
+diretorio = '/home/guimoura/Documentos/Organizar/'
+
+start = time.time()
+
+arq_log = "/home/guimoura/Documentos/Organizar/logs/" + str(datetime.date.today()) + ".log"
+logging.basicConfig(filename=arq_log, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%d/%m/%Y %H:%M:%S")
+
+inicio = datetime.datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+logging.info("")
+logging.info("")
+logging.info("==================================================================================================================")
+logging.info("=                                Transferindo arquivos        " + inicio + "                                     =")
+logging.info("==================================================================================================================")
+logging.info("")
+
+# Coloca a lista com somente files em arquivos
+arquivos = [arquivo for arquivo in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio, arquivo))]
+
+# quantidade de arquivos para o for
+quantidade_arquivos = len(arquivos)
+
+logging.info("==================================================================================================================")
+logging.info("=                               Quantidade de arquivos a serem transferidos " + str(quantidade_arquivos) + "     =")
+logging.info("==================================================================================================================")
+
+logging.info("Começando for ")
+for x in range(0, quantidade_arquivos):
+  # Verifica se há pelo menos um arquivo na lista
+  if len(arquivos) > 0:
+      
+      # Seleciona o primeiro arquivo da lista
+      primeiro_arquivo = arquivos[x]
+    
+      logging.info('O nome do arquivo é: {}'.format(primeiro_arquivo))
+  else:
+      logging.info('Não há arquivos na pasta.')
+      
+  if(quantidade_arquivos > 0):
+        # Procura pela sequência "s20230" no nome do arquivo para econtrar o dia
+    match = re.search(r'_G16_s2023(\d{3})', primeiro_arquivo)
+
+    if match:
+        # Extrai os dois números após a sequência "s20230"
+        dia = match.group(1)
+        
+        logging.info('Transferindo arquivos para a pasta dia{}'.format(dia))
+    else:
+        logging.info('A sequência "s2023" não foi encontrada no nome do arquivo.')
+
+    # Transforma o inteiro contador em string e com 3 digitos
+    diatxt = str(dia).zfill(2)
+    
+    # Destino do arquivo
+    destino = Path("/home/guimoura/Documentos/Organizar/dia{}/".format(diatxt))
+
+    # Caminho do arquivo
+    caminho_arquivo = (diretorio + primeiro_arquivo)
+    logging.info("Caminho do arquivo: " + caminho_arquivo)
+    
+    #Cria um diretória se ele não existir
+    if not os.path.isdir(destino):
+        logging.info("O diretório dia{} não existe!".format(diatxt))
+        logging.info("Criando diretório dia{}!".format(diatxt))
+        os.mkdir(destino)
+    shutil.move(caminho_arquivo, destino)
+  else: logging.info("Não existem arquivos.")
+
+
+def finalize(s):
+    # Capturando data/hora final
+    fim = datetime.datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
+    # Realiza o log do calculo do tempo de execucao
+    logging.info("")
+    logging.info("Tempo gasto " + str(round(time.time() - s, 4)) + ' segundos')
+    logging.info("")
+    logging.info("==================================================================================================================")
+    logging.info("=                             Tempo de tranferencia de arquivos  " + fim + "                                     =")
+    logging.info("==================================================================================================================")
+    logging.info("")
+    logging.info("")
+
+finalize(start)
