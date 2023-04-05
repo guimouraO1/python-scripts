@@ -10,15 +10,25 @@ import logging
 import time
 import datetime
 
+###########################################################################
+#        Script para organização dos arquivos do GOES-R no Storage        #
+###########################################################################
+#  Metodo: Diario                                                         #
+#  Descricao: Organiza os dados do GOES-R no storage em pastas            #
+#  Autor: Guilherme de Moura Oliveira  <guimoura@unicamp.br>              #
+#  Data: 04/04/2023                                                       #
+#  Atualizacao: 05/04/2023                                                #
+###########################################################################
+
 # Nome do diretório em que estão as imagens
 diretorio = '/home/guimoura/Documentos/Organizar/'
-
+# Start time para o tempo do log
 start = time.time()
-
+# Pasta destino log
 arq_log = "/home/guimoura/Documentos/Organizar/logs/" + str(datetime.date.today()) + ".log"
-
+#Configurando log
 logging.basicConfig(filename=arq_log, level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%d/%m/%Y %H:%M:%S")
-
+#ínicio log
 inicio = datetime.datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
 logging.info("")
 logging.info("")
@@ -41,28 +51,28 @@ logging.info("==================================================================
 logging.info('\n')
 
 logging.info("Começando... ")
-
+#verifica se há arquivos na pasta
 if(quantidade_arquivos <= 0):
     logging.info("Não há arquivos para transferencia.")
 else:
-    for x in range(0, quantidade_arquivos, 1):
+    for x in range(0, quantidade_arquivos, 1):#Começa o loop para transferir todos os arquivos
         try:
-            primeiro_arquivo = arquivos[x]
+            primeiro_arquivo = arquivos[x]#Pega o arquivo na casa correspondente
             logging.info('O nome do arquivo é: {}'.format(primeiro_arquivo))
         except:
             logging.info('Não há arquivos na pasta.')
-
+        # Extraíndo o dia do arquio e criando a pasta de destino
         if(quantidade_arquivos > 0):
             match = re.search(r'G16_s2023(\d{3})', primeiro_arquivo)
             if match:
-                dia = match.group(1)
-                diatxt = str(dia).zfill(2)
+                dia = match.group(1)# Recebe o dia extraído do arquivo
+                diatxt = str(dia).zfill(2)# Transforma o inteiro contador em string e com 2 digitos
                 destino = Path("/home/guimoura/Documentos/Organizar/dia{}".format(diatxt))
-                if not os.path.isdir(destino):
+                if not os.path.isdir(destino):#Verifica se o diretorio de destino existe
                     logging.info("O diretório dia{} não existe!".format(diatxt))
                     logging.info("Criando diretório dia{}!".format(diatxt))
                     try:
-                        os.mkdir(destino)
+                        os.mkdir(destino)#Criando diretório de destino
                         logging.info("Diretório dia{} criado com sucesso!".format(diatxt))
                     except: logging.info("Não foi possível criar a pasta do dia {}".format(diatxt))
                 logging.info('Dia a ser transferido {}'.format(diatxt))
@@ -73,7 +83,7 @@ else:
 
         # Caminho do arquivo
         caminho_arquivo = (diretorio + primeiro_arquivo)
-
+        #Movendo o arquivo para a pasta de destino
         try:
             logging.info("Movendo arquivo...")
             shutil.move(caminho_arquivo, destino)
@@ -82,7 +92,7 @@ else:
             logging.info('Não foi possível a transferencia do arquivo.')
 
         logging.info('\n')
-        
+      #finalizando log  
 def finalize(s):
     # Capturando data/hora final
     fim = datetime.datetime.now().strftime("%d/%m/%Y-%H:%M:%S")
