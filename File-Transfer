@@ -37,10 +37,12 @@ logging.info("             START-SCRIPT        Transferindo arquivos " + inicio 
 logging.info("==================================================================================================================")
 logging.info("")
 
-
+arquivos_transferidos = 0
 
 # Coloca a lista com somente files em arquivos
 arquivos = [arquivo for arquivo in os.listdir(diretorio) if os.path.isfile(os.path.join(diretorio, arquivo))]
+
+arquivos.sort()
 
 # quantidade de arquivos para o for
 quantidade_arquivos = len(arquivos)
@@ -57,37 +59,38 @@ if(quantidade_arquivos <= 0):
 else:
     for x in range(0, quantidade_arquivos, 1):#Começa o loop para transferir todos os arquivos
         try:
-            primeiro_arquivo = arquivos[x]#Pega o arquivo na casa correspondente
+            primeiro_arquivo = arquivos[x] #Pega o arquivo na casa correspondente
             logging.info('O nome do arquivo é: {}'.format(primeiro_arquivo))
         except:
             logging.info('Não há arquivos na pasta.')
-        # Extraíndo o dia do arquio e criando a pasta de destino
-        if(quantidade_arquivos > 0):
-            match = re.search(r'G16_s2023(\d{3})', primeiro_arquivo)
-            if match:
-                dia = match.group(1)# Recebe o dia extraído do arquivo
-                diatxt = str(dia).zfill(2)# Transforma o inteiro contador em string e com 2 digitos
-                destino = Path("/home/guimoura/Documentos/Organizar/dia{}".format(diatxt))
-                if not os.path.isdir(destino):#Verifica se o diretorio de destino existe
-                    logging.info("O diretório dia{} não existe!".format(diatxt))
-                    logging.info("Criando diretório dia{}!".format(diatxt))
-                    try:
-                        os.mkdir(destino)#Criando diretório de destino
-                        logging.info("Diretório dia{} criado com sucesso!".format(diatxt))
-                    except: logging.info("Não foi possível criar a pasta do dia {}".format(diatxt))
-                logging.info('Dia a ser transferido {}'.format(diatxt))
-            else: 
-                logging.info('A sequência "G16_s2023" não foi encontrada no nome do arquivo.')
+
+        #retira a data e transferindo para o primeiro arquivo
+        match = re.search(r'G16_s2023(\d{3})', primeiro_arquivo)
+        if match:
+            dia = match.group(1)# Recebe o dia extraído do arquivo
+            diatxt = str(dia).zfill(2)# Transforma o inteiro contador em string e com 2 digitos
+            destino = Path("/home/guimoura/Documentos/Organizar/dia{}".format(diatxt))
+            if not os.path.isdir(destino):#Verifica se o diretorio de destino existe
+                logging.info("O diretório dia{} não existe!".format(diatxt))
+                logging.info("Criando diretório dia{}!".format(diatxt))
+                try:
+                    os.mkdir(destino)#Criando diretório de destino
+                    logging.info("Diretório dia{} criado com sucesso!".format(diatxt))
+                except: logging.info("Não foi possível criar a pasta do dia {}".format(diatxt))
+            logging.info('Dia a ser transferido {}'.format(diatxt))
+        else: 
+            logging.info('A sequência "G16_s2023" não foi encontrada no nome do arquivo.')
         
         logging.info('Transferindo arquivos para a pasta dia{}'.format(dia))
 
-        # Caminho do arquivo
+        #Caminho do arquivo
         caminho_arquivo = (diretorio + primeiro_arquivo)
         #Movendo o arquivo para a pasta de destino
         try:
             logging.info("Movendo arquivo...")
             shutil.move(caminho_arquivo, destino)
             logging.info('Concluído!')
+            arquivos_transferidos += 1
         except:
             logging.info('Não foi possível a transferencia do arquivo.')
 
@@ -104,7 +107,9 @@ def finalize(s):
     logging.info("=                 FIM           Tempo de tranferencia de arquivos  " + fim + "                                   =")
     logging.info("==================================================================================================================")
     logging.info("")
-    logging.info("")
+    logging.info("==================================================================================================================")
+    logging.info("Total de arquivos transferidos " + str(arquivos_transferidos))
+    logging.info("==================================================================================================================")
     logging.info("\n")
 
 
