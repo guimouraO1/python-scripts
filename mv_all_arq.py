@@ -28,9 +28,6 @@ ano = 2023
 # O diretório em que estão as imagens
 origem = f'C:/Users/Gui/OneDrive/Documentos/python-scripts/ano{ano}/'
 
-# Config log
-arq_log = "C:/Users/Gui/OneDrive/Documentos/python-scripts/logs/arquivo.log"
-
 # Obtem a lista de todos os arquivos de uma pasta, retorna lista e quantidade de arquivos da lista
 lista_arquivos = obtem_lista_arquivos(origem)
 
