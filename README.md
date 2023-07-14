@@ -79,9 +79,16 @@ Autor `Guilherme de Moura Oliveira`
 
 
 
-<br><br><br>
+<br><br>
 # Backups
-<br><br><br>
+<br><br>
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 
 ## Script de Backup para Nuvem `backup_nuvemflash.sh`
 
@@ -132,8 +139,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
 
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 
 ## Script de Backup para Nuvem `backup_nuveml1b.sh`
 
@@ -183,8 +196,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
 
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 
 # Script de Backup para Nuvem `backup_nuveml2.sh`
 
@@ -233,7 +252,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="linux logo"  />
+</div>
 
 ## Script de Backup para Storage `backup_storageflash.sh`
 
@@ -284,7 +310,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="linux logo"  />
+</div>
 
 ## Script de Backup para Storage `backup_storagel1b.sh`
 
@@ -331,10 +364,16 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 **Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para movimentação de arquivos para o storage.
 
+<br>
+<br>
 
-<br>
-<br>
-<br>
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="linux logo"  />
+</div>
 
 ## Script de Backup para Storage `backup_storagelevel2.sh`
 
@@ -382,10 +421,21 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 **Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para movimentação de arquivos para o storage.
 
 
+
+
+
+
 <br><br><br>
 # Deletar arquivos
-<br><br><br>
+<br><br>
 
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+</div>
+
+###
 ## Script de Exclusão de Arquivos NAVF `deleteNAVF.py`
 
 Este é um script em Python projetado para excluir arquivos NAVF da pasta okul - level2. Ele foi criado para executar uma exclusão diária dos arquivos NAVF do dia anterior.
@@ -435,7 +485,13 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br><br><br>
 # Total size (GB) gerenciamento do armazenamento de dados
-<br><br><br>
+<br><br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+</div>
 
 
 ## Script para Arrumar Planilha de Dados `arrumar_tamanho_para_csv.py`
@@ -486,7 +542,14 @@ Certifique-se de ter o arquivo de entrada no formato correto e de que os dados e
 
 <br>
 <br>
-<br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 
 ## Script para Verificar Tamanho de Pastas `tamanhol1Nuvem.sh`
 
@@ -538,8 +601,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
 
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 
 ## Script para Verificar Tamanho de Pastas `tamanhol2Nuvem.sh`
 
@@ -590,12 +659,18 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
+
 
 <br><br><br>
 # Organizar pastas
-<br><br><br>
+<br><br>
 
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+</div>
 
 ## Script para Organização de Arquivos no Storage `organiza_l1.py`
 
@@ -631,7 +706,13 @@ Certifique-se de que o script e o arquivo de log tenham permissões de gravaçã
 
 <br>
 <br>
-<br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+</div>
+
 
 ## Script para Organização de Arquivos no Storage `organiza_l2.py`
 
@@ -667,7 +748,12 @@ Certifique-se de que o script e o arquivo de log tenham permissões de gravaçã
 
 <br>
 <br>
-<br>
+
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
+</div>
 
 ## Modulo para Organização de Arquivos no Storage `organiza_util.py`
 
@@ -699,13 +785,19 @@ Certifique-se de que o arquivo `organizar_util.py` esteja no mesmo diretório do
 
 <br>
 <br>
-<br>
+
 
 <br><br><br>
 # Tratamento para dias com perda de dados
-<br><br><br>
+<br><br>
 
-
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 ## Script para Repor Dias Perdidos na Nuvem `aws_para_Numem.sh`
 
 Este é um script em Bash que utiliza o rclone para copiar arquivos da AWS para a nuvem (level2). Ele é projetado para repor dias perdidos, copiando os arquivos correspondentes de um determinado intervalo de dias.
@@ -740,9 +832,14 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 
 <br>
 <br>
-<br>
 
-
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="bash logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" height="40" alt="vscode logo"  />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
+</div>
 ## Script para Copiar da Nuvem para a Storage `copia_nuvem_to_storage.sh`
 
 Este é um script em Bash que utiliza o rclone para copiar arquivos da nuvem (level2) para a storage. Ele é projetado para copiar arquivos de um intervalo de dias julianos específico.
@@ -773,8 +870,4 @@ Certifique-se de que o rclone esteja corretamente configurado e autenticado para
 8. Repete o processo para cada dia no intervalo especificado.
 
 Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo.
-
-
-
-
 
