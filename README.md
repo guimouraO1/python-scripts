@@ -493,5 +493,58 @@ Certifique-se de ter o arquivo de entrada no formato correto e de que os dados e
 <br>
 <br>
 
+## Script para Verificar Tamanho de Pastas `tamanhol1Nuvem.sh`
+
+Este é um script em bash projetado para verificar o tamanho em GB das pastas l1b e l2 no storage ou na nuvem. Ele foi criado para ser executado anualmente e registrar as informações de tamanho em um arquivo de log.
+
+## Uso
+```bash
+bash tamanhol1Nuvem.sh
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `log_file`: Caminho e nome do arquivo de log onde as informações de tamanho serão registradas.
+- `origem`: Diretório de origem das pastas l1b ou l2. Você pode escolher entre o storage ou a nuvem, descomentando a linha correspondente.
+
+## Funcionamento
+1. O script configura o arquivo de log especificado em `log_file`.
+2. Define o diretório de origem das pastas l1b ou l2 de acordo com a configuração em `origem`.
+3. Para cada dia de 1 a 193, o script executa o comando `rclone size` para verificar o tamanho da pasta correspondente ao dia atual.
+   - O resultado é redirecionado para o arquivo de log especificado.
+4. No final do script, há um trecho de código comentado que pode ser usado para verificar o tamanho total da pasta. Descomente essas linhas apenas quando a pasta estiver totalmente preenchida, pois pode demorar para processar.
+   - O resultado é redirecionado para o arquivo de log especificado.
+
+## Exemplo de Saída do Log
+```
+------------------------------------------
+------------DIA001--------------
+------------------------------------------
+rclone size /mnt/storage/level1b/ano2023/dia001
+Total objects: 100
+Total size: 10 GiB (10737418240 Bytes)
+
+------------------------------------------
+------------DIA002--------------
+------------------------------------------
+rclone size /mnt/storage/level1b/ano2023/dia002
+Total objects: 150
+Total size: 15 GiB (16106127360 Bytes)
+
+...
+
+```
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo. Você pode fazer isso usando o comando `chmod +x tamanhol1Nuvem.sh`. Além disso, verifique se o utilitário `rclone` está instalado no sistema e devidamente configurado para acessar o diretório de origem das pastas l1b ou l2.
+
+**Nota:** Este script presume que você esteja familiarizado com o uso básico de scripts bash e o utilitário `rclone`.
+
+
+<br>
+<br>
+<br>
+
+
 
 
