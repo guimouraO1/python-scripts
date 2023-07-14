@@ -83,7 +83,7 @@ Autor `Guilherme de Moura Oliveira`
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=guimouraO1&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
 </div>
 
-
+<br><br><br>
 
 
 # Script de Backup para Nuvem `backup_nuvemflash.sh`
@@ -129,6 +129,57 @@ Antes de executar o script, é necessário configurar algumas variáveis de acor
 ```
 
 Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo. Você pode fazer isso usando o comando `chmod +x backup_nuvemflash.sh`. Além disso, verifique se o utilitário `rclone` está instalado no sistema e devidamente configurado para acesso ao destino na nuvem.
+
+**Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para cópia de arquivos para a nuvem.
+
+
+<br>
+<br>
+<br>
+
+
+# Script de Backup para Nuvem `backup_nuveml1b.sh`
+
+Este é um script em bash projetado para copiar arquivos para uma pasta em nuvem específica. Ele foi criado para executar backups diários dos arquivos do dia anterior para uma pasta na nuvem GOES-16.
+
+## Uso
+```bash
+bash backup_nuveml1b.sh
+```
+
+## Configuração
+Antes de executar o script, é necessário configurar algumas variáveis de acordo com suas necessidades:
+
+- `ARQ_LOG`: Nome do arquivo de log gerado pelo script.
+- `DIR_LOG`: Diretório onde o arquivo de log será armazenado.
+- `origem`: Diretório de origem dos arquivos a serem copiados.
+- `destino`: Diretório de destino na nuvem onde os arquivos serão armazenados.
+
+## Funcionamento
+1. O script cria um arquivo de log com o nome `bkp_level1b-nuvem<DATA_ATUAL>.log` no diretório especificado em `DIR_LOG`.
+2. Obtém o ano e o dia anterior em formato de dia juliano.
+3. Inicia a cópia dos arquivos do dia anterior usando o comando `rclone copy`.
+   - Apenas os arquivos correspondentes ao padrão definido em `padrao` serão copiados. O padrão procura por arquivos contendo `L1b` ou `GLM-L2-LCFA` no nome e que correspondam ao ano e dia juliano do dia anterior.
+   - Utiliza a opção `--transfers=100` para definir 100 transferências simultâneas, o que pode ser ajustado de acordo com a capacidade do sistema.
+   - O progresso e os detalhes da cópia serão registrados no arquivo de log especificado em `--log-file`.
+
+## Exemplo de Saída do Log
+```
+=========================================================================================================
+=========================================================================================================
+=                                 INICIANDO SCRIPT BACKUP PARA O DRIVE LEVEL1                           =
+=========================================================================================================
+=========================================================================================================
+
+
+=========================================================================================================
+=========================================================================================================
+=                                 FINALIZANDO O SCRIPT 2023-05-18 12:34:56                     =
+=========================================================================================================
+=========================================================================================================
+```
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo. Você pode fazer isso usando o comando `chmod +x backup_nuveml1b.sh`. Além disso, verifique se o utilitário `rclone` está instalado no sistema e devidamente configurado para acesso ao destino na nuvem.
 
 **Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para cópia de arquivos para a nuvem.
 
