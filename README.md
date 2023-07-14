@@ -755,32 +755,71 @@ Certifique-se de que o script e o arquivo de log tenham permissões de gravaçã
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
-## Modulo para Organização de Arquivos no Storage `organiza_util.py`
+## Script para Organização de Arquivos `organizar_util.py`
 
-O arquivo `organizar_util.py` é um módulo Python contendo funções utilizadas para organizar os arquivos nos scripts `organiza_l1.py` e `organiza_l2.py`. Abaixo está a descrição das funções presentes no arquivo:
+Este script em Python contém um conjunto de funções para organizar arquivos em diretórios com base em determinados critérios.
 
-## `config_log(arq_log)`
-Configura o arquivo de log onde as informações serão registradas.
+### Funções
 
-## `logging_inicio()`
-Registra uma mensagem de início no log.
+- `config_log(arq_log)`: Configura o log para o registro de informações e erros durante a execução do script.
+- `logging_inicio()`: Registra o início da execução do script no arquivo de log.
+- `logging_fim()`: Registra o fim da execução do script no arquivo de log.
+- `convert_to_julian_day(day)`: Converte um número inteiro em uma string de três dígitos representando o dia juliano.
+- `verifica_destino(destino)`: Verifica se a pasta de destino existe e, se não existir, cria-a.
+- `obtem_lista_arquivos(origem)`: Obtém uma lista de arquivos apenas no diretório especificado, ordena-os e retorna a lista e a quantidade de arquivos.
+- `movendo_arquivos(origem, quantidade_arquivos, lista_arquivos, ano)`: Move os arquivos da lista fornecida para suas respectivas pastas de destino, com base no ano.
 
-## `logging_fim()`
-Registra uma mensagem de fim no log.
+### Uso
 
-## `convert_to_julian_day(day)`
-Converte um número inteiro representando um dia para o formato de dia juliano.
+```python
+from organizar_util import *
+```
 
-## `verifica_destino(destino)`
-Verifica se o destino especificado existe. Se não existir, cria a pasta de destino.
+### Configuração do Log
 
-## `obtem_lista_arquivos(origem)`
-Obtém uma lista de arquivos presentes no diretório de origem especificado. Ordena a lista em ordem alfabética.
+Antes de utilizar as funções do script, é necessário configurar o arquivo de log. Utilize a função `config_log(arq_log)` para definir o caminho e o nome do arquivo de log onde as informações serão registradas.
 
-## `movendo_arquivos(origem, quantidade_arquivos, lista_arquivos, ano)`
-Move os arquivos para suas respectivas pastas de acordo com o dia especificado nos nomes dos arquivos. Verifica o dia de cada arquivo, cria a pasta de destino correspondente e move o arquivo para essa pasta.
+Exemplo de configuração do log:
 
-Certifique-se de que o arquivo `organizar_util.py` esteja no mesmo diretório dos scripts `organiza_l1.py` ou `organiza_l2.py` para que as funções possam ser corretamente importadas.
+```python
+config_log('arquivo_log.txt')
+```
+
+### Exemplo de Uso
+
+Aqui está um exemplo de como utilizar as funções do script:
+
+```python
+# Configurar o log
+config_log('arquivo_log.txt')
+
+# Registrar o início da execução
+logging_inicio()
+
+# Definir o ano dos arquivos
+ano = '2023'
+
+# Definir o diretório de origem
+origem = '/caminho/do/diretorio/origem'
+
+# Obter a lista de arquivos
+lista_arquivos, quantidade_arquivos = obtem_lista_arquivos(origem)
+
+# Mover os arquivos para as pastas de destino
+arquivos_transferidos = movendo_arquivos(origem, quantidade_arquivos, lista_arquivos, ano)
+
+# Registrar o fim da execução
+logging_fim()
+```
+
+### Dependências
+
+Certifique-se de que você tenha o Python 3 instalado no seu sistema. Além disso, verifique se possui os seguintes pacotes/módulos:
+
+- `pathlib`: Utilizado para lidar com caminhos de arquivos e diretórios.
+- `shutil`: Utilizado para realizar operações de movimentação/cópia de arquivos.
+
+Certifique-se de ter as dependências instaladas antes de executar o script.
 
 
 <br>
