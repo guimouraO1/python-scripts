@@ -677,7 +677,7 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 Este é um script em Python projetado para organizar os arquivos do GOES-R no storage. Ele cria pastas separadas para cada dia com base nos dados contidos nos nomes dos arquivos. Os arquivos são movidos para suas respectivas pastas de acordo com o dia.
 
 ## Uso
-```bash
+```python
 python3 organiza_l1.py
 ```
 
@@ -719,7 +719,7 @@ Certifique-se de que o script e o arquivo de log tenham permissões de gravaçã
 Este é um script em Python projetado para organizar os arquivos do GOES-R no storage. Ele cria pastas separadas para cada dia com base nos dados contidos nos nomes dos arquivos. Os arquivos são movidos para suas respectivas pastas de acordo com o dia.
 
 ## Uso
-```bash
+```python
 python3 organiza_l2.py
 ```
 
