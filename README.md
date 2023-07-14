@@ -292,7 +292,7 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 <br>
 <br>
 
-# Script de Backup para Storage `backup_storagel1b.sh`
+## Script de Backup para Storage `backup_storagel1b.sh`
 
 Este é um script em bash projetado para mover arquivos para uma pasta em um storage específico. Ele foi criado para executar movimentações diárias dos arquivos do dia anterior para uma pasta no storage GOES-16.
 
@@ -342,7 +342,7 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 <br>
 <br>
 
-# Script de Backup para Storage `backup_storagelevel2.sh`
+## Script de Backup para Storage `backup_storagelevel2.sh`
 
 Este é um script em bash projetado para mover arquivos para uma pasta em um storage específico. Ele foi criado para executar movimentações diárias dos arquivos do dia anterior para uma pasta no storage GOES-16.
 
@@ -388,8 +388,61 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 **Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para movimentação de arquivos para o storage.
 
 
-<br>
-<br>
-<br>
+<br><br><br>
+# Deletar arquivos
+<br><br><br>
+
+## Script de Exclusão de Arquivos NAVF `deleteNAVF.py`
+
+Este é um script em Python projetado para excluir arquivos NAVF da pasta okul - level2. Ele foi criado para executar uma exclusão diária dos arquivos NAVF do dia anterior.
+
+## Uso
+Certifique-se de ter o Python 3 instalado no seu sistema.
+
+1. Abra um terminal ou prompt de comando.
+2. Navegue até o diretório onde o script `deleteNAVF.py` está localizado.
+3. Execute o seguinte comando:
+```bash
+python3 deleteNAVF.py
+```
+
+## Configuração
+Antes de executar o script, você pode ajustar algumas configurações:
+
+- `arq_log`: Caminho e nome do arquivo de log gerado pelo script.
+- `origem`: Diretório de origem dos arquivos NAVF a serem excluídos.
+
+## Funcionamento
+1. O script configura o log de acordo com o arquivo especificado em `arq_log`.
+2. Registra o início da exclusão dos arquivos NAVF no log.
+3. Define o diretório de origem dos arquivos NAVF.
+4. Obtém o ano atual e o dia anterior em formato juliano.
+5. Define o padrão a ser procurado nos arquivos NAVF usando o ano e o dia anterior.
+6. Executa o comando `rclone delete` para excluir os arquivos que correspondam ao padrão definido em `padrao`.
+   - O progresso e os detalhes da exclusão são registrados no arquivo de log especificado em `--log-file`.
+7. Registra a conclusão da exclusão dos arquivos NAVF no log.
+
+## Exemplo de Saída do Log
+```
+==================================================================================================================
+                                    Iniciando exclusão dos arquivos NAVF                                          
+==================================================================================================================
+
+Os arquivos do dia 193 com padrão *NAVF*2023193*, foram deletados com sucesso!
+
+==================================================================================================================
+                                           Finalizando os script                                                  
+==================================================================================================================
+```
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo. Você pode fazer isso usando o comando `chmod +x deleteNAVF.py`. Além disso, verifique se o utilitário `rclone` está instalado no sistema e devidamente configurado para acessar o diretório de origem dos arquivos NAVF.
+
+**Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts Python e o uso do `rclone` para exclusão de arquivos.
+
+<br><br><br>
+# Total size (GB) gerenciamento do armazenamento de dados
+<br><br><br>
+
+
 
 
