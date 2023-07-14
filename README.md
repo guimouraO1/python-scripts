@@ -9,7 +9,9 @@
 
 Documentação dos scripts criados no Centro de Pesquisas Meteorológicas e Climáticas Aplicadas à Agricultura - CEPAGRI/UNICAMP - Universidade Estadual de Campinas.
 
-Autor `Guilherme de Moura Oliveira`
+Autor `Guilherme de Moura Oliveira`  <div align="left">
+  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+</div>
 
 
 ## Documentação
@@ -50,9 +52,7 @@ Autor `Guilherme de Moura Oliveira`
 
 
 
-<div align="left">
-  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
-</div>
+
 
 ###
 
