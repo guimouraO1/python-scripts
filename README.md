@@ -46,7 +46,7 @@ Autor `Guilherme de Moura Oliveira`
 `organiza_l2.py`
 `organizar_util.py`
 
-- Tratamento de dias com perda de dados
+- Tratamento para dias com perda de dados
 
 `aws_para_Nuvem.sh`
 `copia_nuvem_to_storage.sh`
@@ -544,6 +544,241 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 <br>
 <br>
 <br>
+
+
+## Script para Verificar Tamanho de Pastas `tamanhol2Nuvem.sh`
+
+Este é um script em bash projetado para verificar o tamanho em GB das pastas l1b e l2 no storage ou na nuvem. Ele foi criado para ser executado anualmente e registrar as informações de tamanho em um arquivo de log.
+
+## Uso
+```bash
+bash tamanhol2Nuvem.sh
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `log_file`: Caminho e nome do arquivo de log onde as informações de tamanho serão registradas.
+- `origem`: Diretório de origem das pastas l1b ou l2. Você pode escolher entre o storage ou a nuvem, descomentando a linha correspondente.
+
+## Funcionamento
+1. O script configura o arquivo de log especificado em `log_file`.
+2. Define o diretório de origem das pastas l1b ou l2 de acordo com a configuração em `origem`.
+3. Para cada dia de 1 a 180, o script executa o comando `rclone size` para verificar o tamanho da pasta correspondente ao dia atual.
+   - O resultado é redirecionado para o arquivo de log especificado.
+4. No final do script, há um trecho de código comentado que pode ser usado para verificar o tamanho total da pasta. Descomente essas linhas apenas quando a pasta estiver totalmente preenchida, pois pode demorar para processar.
+   - O resultado é redirecionado para o arquivo de log especificado.
+
+## Exemplo de Saída do Log
+```
+------------------------------------------
+------------DIA001--------------
+------------------------------------------
+rclone size /mnt/storage/level2/ano2023/dia001
+Total objects: 100
+Total size: 10 GiB (10737418240 Bytes)
+
+------------------------------------------
+------------DIA002--------------
+------------------------------------------
+rclone size /mnt/storage/level2/ano2023/dia002
+Total objects: 150
+Total size: 15 GiB (16106127360 Bytes)
+
+...
+
+```
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo. Você pode fazer isso usando o comando `chmod +x tamanhol2Nuvem.sh`. Além disso, verifique se o utilitário `rclone` está instalado no sistema e devidamente configurado para acessar o diretório de origem das pastas l1b ou l2.
+
+**Nota:** Este script presume que você esteja familiarizado com o uso básico de scripts bash e o utilitário `rclone`.
+
+<br>
+<br>
+<br>
+
+<br><br><br>
+# Organizar pastas
+<br><br><br>
+
+
+## Script para Organização de Arquivos no Storage `organiza_l1.py`
+
+Este é um script em Python projetado para organizar os arquivos do GOES-R no storage. Ele cria pastas separadas para cada dia com base nos dados contidos nos nomes dos arquivos. Os arquivos são movidos para suas respectivas pastas de acordo com o dia.
+
+## Uso
+```bash
+python3 organiza_l1.py
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `arq_log`: Caminho e nome do arquivo de log onde as informações serão registradas.
+
+## Dependências
+Certifique-se de que você tenha o Python 3 instalado no seu sistema. Além disso, verifique se você possui o pacote `pathlib` e o módulo `shutil` incluídos na sua instalação do Python.
+
+## Funcionamento
+1. O script importa funções do módulo `organizar_util`.
+2. Configura o arquivo de log especificado em `arq_log`.
+3. Inicia o log.
+4. Define o ano dos arquivos a serem organizados.
+5. Define o diretório de origem dos arquivos.
+6. Obtém uma lista de todos os arquivos no diretório de origem.
+7. Obtém a quantidade de arquivos na lista.
+8. Move os arquivos para as pastas correspondentes com base nos dias.
+9. Finaliza o log.
+
+O script utiliza funções auxiliares do módulo `organizar_util.py` para realizar as etapas de organização. Certifique-se de que o arquivo `organizar_util.py` esteja no mesmo diretório que o script `organiza_l1.py` para que as funções sejam corretamente importadas.
+
+Certifique-se de que o script e o arquivo de log tenham permissões de gravação adequadas antes de executá-los.
+
+<br>
+<br>
+<br>
+
+## Script para Organização de Arquivos no Storage `organiza_l2.py`
+
+Este é um script em Python projetado para organizar os arquivos do GOES-R no storage. Ele cria pastas separadas para cada dia com base nos dados contidos nos nomes dos arquivos. Os arquivos são movidos para suas respectivas pastas de acordo com o dia.
+
+## Uso
+```bash
+python3 organiza_l2.py
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `arq_log`: Caminho e nome do arquivo de log onde as informações serão registradas.
+
+## Dependências
+Certifique-se de que você tenha o Python 3 instalado no seu sistema. Além disso, verifique se você possui o pacote `pathlib` e o módulo `shutil` incluídos na sua instalação do Python.
+
+## Funcionamento
+1. O script importa funções do módulo `organizar_util`.
+2. Configura o arquivo de log especificado em `arq_log`.
+3. Inicia o log.
+4. Define o ano dos arquivos a serem organizados.
+5. Define o diretório de origem dos arquivos.
+6. Obtém uma lista de todos os arquivos no diretório de origem.
+7. Obtém a quantidade de arquivos na lista.
+8. Move os arquivos para as pastas correspondentes com base nos dias.
+9. Finaliza o log.
+
+O script utiliza funções auxiliares do módulo `organizar_util.py` para realizar as etapas de organização. Certifique-se de que o arquivo `organizar_util.py` esteja no mesmo diretório que o script `organiza_l2.py` para que as funções sejam corretamente importadas.
+
+Certifique-se de que o script e o arquivo de log tenham permissões de gravação adequadas antes de executá-los.
+
+<br>
+<br>
+<br>
+
+## Modulo para Organização de Arquivos no Storage `organiza_util.py`
+
+O arquivo `organizar_util.py` é um módulo Python contendo funções utilizadas para organizar os arquivos nos scripts `organiza_l1.py` e `organiza_l2.py`. Abaixo está a descrição das funções presentes no arquivo:
+
+## `config_log(arq_log)`
+Configura o arquivo de log onde as informações serão registradas.
+
+## `logging_inicio()`
+Registra uma mensagem de início no log.
+
+## `logging_fim()`
+Registra uma mensagem de fim no log.
+
+## `convert_to_julian_day(day)`
+Converte um número inteiro representando um dia para o formato de dia juliano.
+
+## `verifica_destino(destino)`
+Verifica se o destino especificado existe. Se não existir, cria a pasta de destino.
+
+## `obtem_lista_arquivos(origem)`
+Obtém uma lista de arquivos presentes no diretório de origem especificado. Ordena a lista em ordem alfabética.
+
+## `movendo_arquivos(origem, quantidade_arquivos, lista_arquivos, ano)`
+Move os arquivos para suas respectivas pastas de acordo com o dia especificado nos nomes dos arquivos. Verifica o dia de cada arquivo, cria a pasta de destino correspondente e move o arquivo para essa pasta.
+
+Certifique-se de que o arquivo `organizar_util.py` esteja no mesmo diretório dos scripts `organiza_l1.py` ou `organiza_l2.py` para que as funções possam ser corretamente importadas.
+
+
+<br>
+<br>
+<br>
+
+<br><br><br>
+# Tratamento para dias com perda de dados
+<br><br><br>
+
+
+## Script para Repor Dias Perdidos na Nuvem `aws_para_Numem.sh`
+
+Este é um script em Bash que utiliza o rclone para copiar arquivos da AWS para a nuvem (level2). Ele é projetado para repor dias perdidos, copiando os arquivos correspondentes de um determinado intervalo de dias.
+
+## Uso
+```bash
+bash aws_para_Numem.sh
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `src`: Caminho de origem dos arquivos na AWS.
+- `dest`: Caminho de destino dos arquivos na nuvem (level2).
+- `log_dir`: Diretório onde os logs de execução serão armazenados.
+
+Além disso, você precisa definir o intervalo de dias que deseja repor. No exemplo do script, está definido para o intervalo de 126 a 127 dias. Você pode modificar o valor das variáveis `day` no loop para especificar seu intervalo desejado.
+
+Certifique-se de que o rclone esteja corretamente configurado e autenticado para acessar a AWS e a nuvem (level2) antes de executar o script.
+
+## Funcionamento
+1. Define as variáveis `src`, `dest` e `log_dir` com os caminhos apropriados.
+2. Inicia um loop para cada dia no intervalo especificado.
+3. Formata o número do dia para um formato de três dígitos (juliano).
+4. Define o caminho de destino para o dia atual.
+5. Executa o comando `rclone` para copiar os arquivos correspondentes do dia atual da AWS para a nuvem.
+6. Registra os logs de execução em um arquivo de log específico para o dia.
+7. Exibe uma mensagem de conclusão para cada dia processado.
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo.
+
+
+<br>
+<br>
+<br>
+
+
+## Script para Copiar da Nuvem para a Storage `copia_nuvem_to_storage.sh`
+
+Este é um script em Bash que utiliza o rclone para copiar arquivos da nuvem (level2) para a storage. Ele é projetado para copiar arquivos de um intervalo de dias julianos específico.
+
+## Uso
+```bash
+bash copia_nuvem_to_storage.sh
+```
+
+## Configuração
+Antes de executar o script, você precisa ajustar algumas configurações:
+
+- `ARQ_LOG`: Nome do arquivo de log que será gerado com informações sobre a execução do script.
+- `DIR_LOG`: Diretório onde o arquivo de log será armazenado.
+- `ano`: Ano para o qual deseja copiar os arquivos.
+- `dia`: Intervalo de dias julianos que você deseja copiar. No exemplo do script, está definido para o intervalo de 48 a 53 dias. Você pode modificar o valor das variáveis `dia` no loop para especificar seu intervalo desejado.
+
+Certifique-se de que o rclone esteja corretamente configurado e autenticado para acessar a nuvem (level2) e a storage antes de executar o script.
+
+## Funcionamento
+1. Define as variáveis `ARQ_LOG`, `DIR_LOG`, `ano`, `dia` com os valores apropriados.
+2. Inicia um loop para cada dia no intervalo especificado.
+3. Formata o número do dia juliano para um formato de três dígitos.
+4. Define o diretório de origem na nuvem.
+5. Define o diretório de destino na storage.
+6. Executa o comando `rclone` para copiar os arquivos do diretório de origem para o diretório de destino.
+7. Registra os logs de execução no arquivo de log específico para a data atual.
+8. Repete o processo para cada dia no intervalo especificado.
+
+Certifique-se de que o script tenha permissões de execução adequadas antes de executá-lo.
+
 
 
 
