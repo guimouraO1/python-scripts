@@ -443,5 +443,55 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 <br><br><br>
 
 
+## Script para Arrumar Planilha de Dados `arrumar_tamanho_para_csv.py`
+
+Este é um script em Python projetado para arrumar os dados de um arquivo de entrada no formato TXT e salvá-los em um arquivo CSV. Ele foi criado para processar e organizar informações específicas de um arquivo de entrada e gravar esses dados em um arquivo CSV.
+
+## Uso
+Certifique-se de ter o Python 3 instalado no seu sistema.
+
+1. Crie um arquivo de entrada no formato TXT contendo as informações desejadas.
+2. Abra o arquivo `arrumar_tamanho_para_csv.py` em um editor de texto.
+3. No código, atualize o valor da variável `arquivo_entrada` para o nome do seu arquivo de entrada (sem a extensão).
+4. Salve o arquivo `arrumar_tamanho_para_csv.py`.
+5. Abra um terminal ou prompt de comando.
+6. Navegue até o diretório onde o script `arrumar_tamanho_para_csv.py` está localizado.
+7. Execute o seguinte comando:
+```bash
+python3 arrumar_tamanho_para_csv.py
+```
+8. Verifique se um arquivo CSV chamado `saida.csv` foi criado no mesmo diretório.
+
+## Funcionamento
+1. O script define duas funções: `escrever_arquivo` e `ler_arquivo`.
+2. A função `escrever_arquivo` recebe o nome do arquivo CSV, o dia, o número total de objetos e o tamanho total como parâmetros.
+   - Ela abre o arquivo CSV em modo de anexação (`'a'`) e escreve os dados formatados no arquivo.
+3. A função `ler_arquivo` recebe o nome do arquivo de entrada como parâmetro.
+   - O nome do arquivo de saída é definido como "saida".
+   - O arquivo de entrada é aberto para leitura (`'r'`) e as linhas são armazenadas na variável `linhas`.
+   - Cada linha é verificada para determinar qual informação está contida nela.
+     - Se a linha começar com "rclone size /mnt/storage/level1b/ano2023/", o dia é extraído da linha.
+     - Se a linha começar com "Total objects:", o número total de objetos é extraído.
+     - Se a linha começar com "Total size:", o tamanho total é extraído.
+   - Os dados extraídos são formatados e passados para a função `escrever_arquivo` para serem gravados no arquivo CSV de saída.
+   - Se ocorrer um erro ao gravar os dados, uma mensagem de erro é exibida.
+4. A variável `arquivo_entrada` é definida com o nome do arquivo de entrada.
+5. A função `ler_arquivo` é chamada com o arquivo de entrada como argumento.
+
+## Exemplo de Saída (saida.csv)
+```
+dia,total_objects,total_size
+001,100,10
+002,150,15
+003,200,20
+...
+```
+
+Certifique-se de ter o arquivo de entrada no formato correto e de que os dados esperados estejam presentes nas linhas correspondentes.
+
+<br>
+<br>
+<br>
+
 
 
