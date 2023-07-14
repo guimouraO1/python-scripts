@@ -52,7 +52,7 @@ Autor `Guilherme de Moura Oliveira`
 
 ###
 
-<h2 align="center">Desenvolvido com</h2>
+<h2 align="center">Desenvolvido com:</h2>
 
 ###
 
@@ -70,7 +70,6 @@ Autor `Guilherme de Moura Oliveira`
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" height="40" alt="amazonwebservices logo"  />
 </div>
 
-###
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=guimouraO1&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
@@ -421,10 +420,6 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
 **Nota:** Esta documentação presume que você está familiarizado com o uso básico de scripts em bash e o uso do `rclone` para movimentação de arquivos para o storage.
 
 
-
-
-
-
 <br><br><br>
 # Deletar arquivos
 <br><br>
@@ -435,7 +430,6 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
-###
 ## Script de Exclusão de Arquivos NAVF `deleteNAVF.py`
 
 Este é um script em Python projetado para excluir arquivos NAVF da pasta okul - level2. Ele foi criado para executar uma exclusão diária dos arquivos NAVF do dia anterior.
@@ -492,7 +486,6 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
-
 
 ## Script para Arrumar Planilha de Dados `arrumar_tamanho_para_csv.py`
 
@@ -713,7 +706,6 @@ Certifique-se de que o script e o arquivo de log tenham permissões de gravaçã
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
 </div>
 
-
 ## Script para Organização de Arquivos no Storage `organiza_l2.py`
 
 Este é um script em Python projetado para organizar os arquivos do GOES-R no storage. Ele cria pastas separadas para cada dia com base nos dados contidos nos nomes dos arquivos. Os arquivos são movidos para suas respectivas pastas de acordo com o dia.
@@ -837,6 +829,7 @@ Certifique-se de ter as dependências instaladas antes de executar o script.
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
 </div>
+
 ## Script para Repor Dias Perdidos na Nuvem `aws_para_Numem.sh`
 
 Este é um script em Bash que utiliza o rclone para copiar arquivos da AWS para a nuvem (level2). Ele é projetado para repor dias perdidos, copiando os arquivos correspondentes de um determinado intervalo de dias.
@@ -879,6 +872,7 @@ Certifique-se de que o script tenha permissões de execução adequadas antes de
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" height="40" alt="googlecloud logo"  />
 </div>
+
 ## Script para Copiar da Nuvem para a Storage `copia_nuvem_to_storage.sh`
 
 Este é um script em Bash que utiliza o rclone para copiar arquivos da nuvem (level2) para a storage. Ele é projetado para copiar arquivos de um intervalo de dias julianos específico.
