@@ -1,0 +1,32 @@
+import re
+
+# Define uma função que recebe uma string com letras e números e a ordena.
+def ordenar_string_com_numeros(s):
+    # Encontra todas as partes que consistem em letras seguidas de números.
+    partes = re.findall(r'[a-zA-Z]+\d+', s)
+    # Cria um dicionário para armazenar a soma dos números correspondentes a cada letra.
+    dicionario = {}
+    # Itera sobre as partes encontradas.
+    for parte in partes:
+        # Separa a letra e o número.
+        letra, numero = re.match(r'([a-zA-Z]+)(\d+)', parte).groups()
+        numero = int(numero)
+        # Adiciona o número ao dicionário, somando-o se a letra já estiver no dicionário.
+        if letra in dicionario:
+            dicionario[letra] += numero
+        else:
+            dicionario[letra] = numero
+            
+    partes_ordenadas = []
+    for letra, numero in dicionario.items():
+        partes_ordenadas.append(f"{letra}{numero}")
+        
+    # Junta as partes ordenadas em uma única string e a retorna.
+    resultado = ''.join(sorted(partes_ordenadas))
+    
+    return resultado
+
+# Exemplo de uso da função.
+s = 'a10a20d30b3c10'
+resultado = ordenar_string_com_numeros(s)
+print(resultado)
